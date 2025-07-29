@@ -8,7 +8,7 @@ public class Buyer
     
     public Buyer()
     {
-        OwnedMoney = RandomClass.Random.Next(1,71) + RandomClass.Random.NextDouble()*100;
+        OwnedMoney = Math.Round(RandomClass.Random.Next(1,71) + RandomClass.Random.NextDouble(), 2);
         
         string[] temporaryArray = Enum.GetNames(typeof(ProductTypes));
         int productCount = temporaryArray.Length;
@@ -26,7 +26,12 @@ public class Buyer
     {
         foreach (var item in _busket)
         {
-            Console.WriteLine($" {item},");
+            Console.WriteLine($"- {item} ");
         }
+    }
+
+    public IReadOnlyList<ProductTypes> GetBuyerBusket()
+    {
+        return _busket;
     }
 }

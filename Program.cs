@@ -12,8 +12,11 @@ class Program
 
             Buyer currentBuyer = buyersQueue.GetFirstPersonInQueue();
 
-            Console.WriteLine("Пришел покупатель:");
+            Console.WriteLine("Пришел покупатель. Вот его корзина:");
             currentBuyer.ShowBusket();
+            double priceForBusker = Сashier.CalculatePrice(currentBuyer.GetBuyerBusket());
+            Console.WriteLine($"Цена за товары - {priceForBusker}" +
+                              $"\nИмеющиеся деньги - {currentBuyer.OwnedMoney}");
             
             
             
