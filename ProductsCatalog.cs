@@ -1,8 +1,8 @@
 ﻿namespace Task_10;
 
-public class ProductsCatalog
+public static class ProductsCatalog
 {
-    private Dictionary<ProductTypes, double> _productsPrice = new()
+    private static Dictionary<ProductTypes, double> _productsPrice = new()
     {
         [ProductTypes.Banana] = 5.60,
         [ProductTypes.Milk] = 1.98,
@@ -14,7 +14,7 @@ public class ProductsCatalog
         [ProductTypes.Cheese] = 19.20
     };
 
-    public double GetProductPrice(ProductTypes productType)
+    public static double GetProductPrice(ProductTypes productType)
     {
         return _productsPrice[productType];
     }

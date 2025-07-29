@@ -8,20 +8,25 @@ public class Buyer
     
     public Buyer()
     {
-        OwnedMoney = RandomClass.Random.Next(1,51) + RandomClass.Random.NextDouble()*100;
+        OwnedMoney = RandomClass.Random.Next(1,71) + RandomClass.Random.NextDouble()*100;
         
         string[] temporaryArray = Enum.GetNames(typeof(ProductTypes));
         int productCount = temporaryArray.Length;
-        int randomNumber = RandomClass.Random.Next(1,productCount);
+        int randomNumber = RandomClass.Random.Next(1,productCount + 1); // +1 из-за особенности рандома
         
         for (int i = 0; i < randomNumber; i++)
         {
             int enumNumber = RandomClass.Random.Next(0, productCount);
             ProductTypes productAtEnumNumber = (ProductTypes)enumNumber;
             _busket.Add(productAtEnumNumber);
-            i++;
         }
-        
-        
+    }
+
+    public void ShowBusket()
+    {
+        foreach (var item in _busket)
+        {
+            Console.WriteLine($" {item},");
+        }
     }
 }
