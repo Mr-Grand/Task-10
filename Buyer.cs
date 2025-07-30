@@ -39,9 +39,16 @@ public class Buyer
     
     public void ShowBag()
     {
-        foreach (var item in _bag)
+        if (_bag.Count == 0)
         {
-            Console.WriteLine($"- {item} ");
+            Console.WriteLine("Пусто");
+        }
+        else
+        {
+            foreach (var item in _bag)
+            {
+                Console.WriteLine($"- {item} ");
+            }
         }
     }
 

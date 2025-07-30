@@ -4,13 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        BuyersQueue buyersQueue = new(10);
+        Market market = new(10);
         
-        while (buyersQueue.GetQueueCount() > 0)
+        while (market.GetQueueCount() > 0)
         {
-            Console.WriteLine($"Очередь состоит из {buyersQueue.GetQueueCount()} людей");
+            Console.WriteLine($"Очередь состоит из {market.GetQueueCount()} людей");
 
-            Buyer currentBuyer = buyersQueue.GetFirstPersonInQueue();
+            Buyer currentBuyer = market.GetFirstPersonInQueue();
 
             Console.WriteLine("Пришел покупатель. Вот его корзина:");
             currentBuyer.ShowBusket();
@@ -19,14 +19,17 @@ class Program
                               $"\nИмеющиеся деньги - {currentBuyer.OwnedMoney}");
             Cashier.ComparePriceAndMoney(currentBuyer);
             
+            market.SellItems(currentBuyer);
             currentBuyer.TransferItemsToBag();
-
+            market.DoneWithBuyer();
+            
             Console.WriteLine("Корзина покупателя:");
             currentBuyer.ShowBusket();
             Console.WriteLine("Сумка покупателя:");
             currentBuyer.ShowBag();
+            Console.WriteLine($"Суммарная выручка: {market.EarnedMoney}");
             
-            buyersQueue.DoneWithBuyer();
+            
             Console.ReadKey();
             Console.Clear();
         }
