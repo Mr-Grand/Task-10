@@ -19,6 +19,12 @@ class Program
                               $"\nИмеющиеся деньги - {currentBuyer.OwnedMoney}");
             Cashier.ComparePriceAndMoney(currentBuyer);
             
+            currentBuyer.TransferItemsToBag();
+
+            Console.WriteLine("Корзина покупателя:");
+            currentBuyer.ShowBusket();
+            Console.WriteLine("Сумка покупателя:");
+            currentBuyer.ShowBag();
             
             buyersQueue.DoneWithBuyer();
             Console.ReadKey();

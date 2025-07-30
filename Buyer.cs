@@ -24,7 +24,22 @@ public class Buyer
 
     public void ShowBusket()
     {
-        foreach (var item in _busket)
+        if (_busket.Count == 0)
+        {
+            Console.WriteLine("Пусто");
+        }
+        else
+        {
+            foreach (var item in _busket)
+            {
+                Console.WriteLine($"- {item} ");
+            }
+        }
+    }
+    
+    public void ShowBag()
+    {
+        foreach (var item in _bag)
         {
             Console.WriteLine($"- {item} ");
         }
@@ -43,10 +58,16 @@ public class Buyer
         }
         else if (OwnedMoney < Cashier.CalculatePrice(GetBuyerBusket()))
         {
-            int randomNumber = RandomClass.Random.Next(1,_busket.Count + 1);
+            int randomNumber = RandomClass.Random.Next(0,_busket.Count);
             Console.WriteLine($"Убран товар {_busket[randomNumber]}");
             _busket.RemoveAt(randomNumber);
             BalanceBusket();
         }
+    }
+
+    public void TransferItemsToBag()
+    {
+        _bag = _busket.ToList();
+        _busket.Clear();
     }
 }
