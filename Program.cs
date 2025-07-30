@@ -14,11 +14,10 @@ class Program
 
             Console.WriteLine("Пришел покупатель. Вот его корзина:");
             currentBuyer.ShowBusket();
-            double priceForBusker = Сashier.CalculatePrice(currentBuyer.GetBuyerBusket());
+            double priceForBusker = Cashier.CalculatePrice(currentBuyer.GetBuyerBusket());
             Console.WriteLine($"Цена за товары - {priceForBusker}" +
                               $"\nИмеющиеся деньги - {currentBuyer.OwnedMoney}");
-            
-            
+            Cashier.ComparePriceAndMoney(currentBuyer);
             
             
             buyersQueue.DoneWithBuyer();

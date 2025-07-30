@@ -34,4 +34,19 @@ public class Buyer
     {
         return _busket;
     }
+
+    public void BalanceBusket()
+    {
+        if (_busket.Count == 0)
+        {
+            Console.WriteLine("У покупателя нет товаров в корзине");
+        }
+        else if (OwnedMoney < Cashier.CalculatePrice(GetBuyerBusket()))
+        {
+            int randomNumber = RandomClass.Random.Next(1,_busket.Count + 1);
+            Console.WriteLine($"Убран товар {_busket[randomNumber]}");
+            _busket.RemoveAt(randomNumber);
+            BalanceBusket();
+        }
+    }
 }
