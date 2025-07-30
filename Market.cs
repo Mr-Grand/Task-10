@@ -4,13 +4,7 @@ public class Market
 {
     private List<Buyer> _buyersQueue = new();
     private List<Buyer> _pastBuyers = new();
-   
     public double EarnedMoney { get; private set; }
-
-    public int GetQueueCount()
-    {
-        return _buyersQueue.Count;
-    }
 
     public Market(int buyersCount)
     {
@@ -18,6 +12,11 @@ public class Market
         {
             _buyersQueue.Add(new Buyer());
         }
+    }
+
+    public int GetQueueCount()
+    {
+        return _buyersQueue.Count;
     }
 
     public Buyer GetFirstPersonInQueue()
@@ -33,9 +32,18 @@ public class Market
 
     public void SellItems(Buyer buyer)
     {
-        foreach (ProductTypes item in buyer.GetBuyerBusket())
+        foreach (ProductTypes item in buyer.GetBuyerBasket())
         {
             EarnedMoney += Math.Round(ProductsCatalog.GetProductPrice(item), 2);
+        }
+    }
+
+    public void WaitUntilMoreBuyers()
+    {
+        int x = RandomClass.Random.Next(1, 4);
+        for (int i = 0; i < x; i++)
+        {
+            _buyersQueue.Add(new Buyer());
         }
     }
 }

@@ -2,41 +2,41 @@
 
 public class Buyer
 {
-    public double OwnedMoney { get; }
-    private List<ProductTypes> _busket = new();
+    private List<ProductTypes> _basket = new();
     private List<ProductTypes> _bag = new();
-    
+    public double OwnedMoney { get; }
+
     public Buyer()
     {
-        OwnedMoney = Math.Round(RandomClass.Random.Next(1,71) + RandomClass.Random.NextDouble(), 2);
-        
+        OwnedMoney = Math.Round(RandomClass.Random.Next(1, 71) + RandomClass.Random.NextDouble(), 2);
+
         string[] temporaryArray = Enum.GetNames(typeof(ProductTypes));
         int productCount = temporaryArray.Length;
-        int randomNumber = RandomClass.Random.Next(1,productCount + 1); // +1 из-за особенности рандома
-        
+        int randomNumber = RandomClass.Random.Next(1, productCount + 1); // +1 из-за особенности рандома
+
         for (int i = 0; i < randomNumber; i++)
         {
             int enumNumber = RandomClass.Random.Next(0, productCount);
             ProductTypes productAtEnumNumber = (ProductTypes)enumNumber;
-            _busket.Add(productAtEnumNumber);
+            _basket.Add(productAtEnumNumber);
         }
     }
 
     public void ShowBusket()
     {
-        if (_busket.Count == 0)
+        if (_basket.Count == 0)
         {
             Console.WriteLine("Пусто");
         }
         else
         {
-            foreach (var item in _busket)
+            foreach (var item in _basket)
             {
                 Console.WriteLine($"- {item} ");
             }
         }
     }
-    
+
     public void ShowBag()
     {
         if (_bag.Count == 0)
@@ -52,29 +52,29 @@ public class Buyer
         }
     }
 
-    public IReadOnlyList<ProductTypes> GetBuyerBusket()
+    public IReadOnlyList<ProductTypes> GetBuyerBasket()
     {
-        return _busket;
+        return _basket;
     }
 
     public void BalanceBusket()
     {
-        if (_busket.Count == 0)
+        if (_basket.Count == 0)
         {
             Console.WriteLine("У покупателя нет товаров в корзине");
         }
-        else if (OwnedMoney < Cashier.CalculatePrice(GetBuyerBusket()))
+        else if (OwnedMoney < Cashier.CalculatePrice(GetBuyerBasket()))
         {
-            int randomNumber = RandomClass.Random.Next(0,_busket.Count);
-            Console.WriteLine($"Убран товар {_busket[randomNumber]}");
-            _busket.RemoveAt(randomNumber);
+            int randomNumber = RandomClass.Random.Next(0, _basket.Count);
+            Console.WriteLine($"Убран товар {_basket[randomNumber]}");
+            _basket.RemoveAt(randomNumber);
             BalanceBusket();
         }
     }
 
     public void TransferItemsToBag()
     {
-        _bag = _busket.ToList();
-        _busket.Clear();
+        _bag = _basket.ToList();
+        _basket.Clear();
     }
 }
