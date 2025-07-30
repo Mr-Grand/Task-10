@@ -3,6 +3,7 @@
 public class BuyersQueue
 {
     private List<Buyer> _buyers = new();
+    private List<Buyer> _pastBuyers = new();
 
     public int GetQueueCount()
     {
@@ -24,6 +25,7 @@ public class BuyersQueue
 
     public void DoneWithBuyer()
     {
+        _pastBuyers.Add(_buyers[0]);
         _buyers.RemoveAt(0);
     }
 }
