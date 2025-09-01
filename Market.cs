@@ -34,7 +34,7 @@ public class Market
     {
         foreach (ProductTypes item in buyer.GetBuyerBasket())
         {
-            EarnedMoney += Math.Round(ProductsCatalog.GetProductPrice(item), 2);
+            EarnedMoney += ProductsCatalog.GetProductPrice(item);
         }
     }
 

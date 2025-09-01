@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Market market = new(10);
+        Market market = new(RandomClass.Random.Next(1, 10));
 
         while (market.GetQueueCount() > 0)
         {
@@ -13,18 +13,21 @@ class Program
             Buyer currentBuyer = market.GetFirstPersonInQueue();
 
             Console.WriteLine("Пришел покупатель. Вот его корзина:");
-            currentBuyer.ShowBusket();
+            currentBuyer.ShowBasket();
             double priceForBusker = Cashier.CalculatePrice(currentBuyer.GetBuyerBasket());
-            Console.WriteLine($"Цена за товары - {priceForBusker}" +
-                              $"\nИмеющиеся деньги - {currentBuyer.OwnedMoney}");
+            Console.WriteLine($"Цена за товары - {Math.Round(priceForBusker, 2)}" +
+                              $"\nИмеющиеся деньги - {Math.Round(currentBuyer.OwnedMoney, 2)}");
             Cashier.ComparePriceAndMoney(currentBuyer);
+            if (Cashier.CalculatePrice(currentBuyer.GetBuyerBasket()) != priceForBusker)
+            {
+                Console.WriteLine(
+                    $"Новая стоимость корзины - {Math.Round(Cashier.CalculatePrice(currentBuyer.GetBuyerBasket()), 2)}");
+            }
 
             market.SellItems(currentBuyer);
             currentBuyer.TransferItemsToBag();
             market.DoneWithBuyer();
 
-            /*Console.WriteLine("Корзина покупателя:");
-            currentBuyer.ShowBusket();*/
             Console.WriteLine("Сумка покупателя:");
             currentBuyer.ShowBag();
             Console.WriteLine($"Суммарная выручка: {Math.Round(market.EarnedMoney, 2)}");
@@ -42,10 +45,10 @@ class Program
                 case ConsoleKey.D2:
                     break;
             }
-            
+
             Console.Clear();
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine("\x1b[3J"); 
+            Console.WriteLine("\x1b[3J");
         }
     }
 }

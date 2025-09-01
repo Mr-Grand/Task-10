@@ -10,14 +10,14 @@ public static class Cashier
             summ += ProductsCatalog.GetProductPrice(item);
         }
 
-        return Math.Round(summ, 2);
+        return summ;
     }
 
     public static void ComparePriceAndMoney(Buyer buyer)
     {
         if (buyer.OwnedMoney < CalculatePrice(buyer.GetBuyerBasket()))
         {
-            buyer.BalanceBusket();
+            buyer.BalanceBasket();
         }
     }
 }

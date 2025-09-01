@@ -8,7 +8,7 @@ public class Buyer
 
     public Buyer()
     {
-        OwnedMoney = Math.Round(RandomClass.Random.Next(1, 71) + RandomClass.Random.NextDouble(), 2);
+        OwnedMoney = RandomClass.Random.Next(1, 71) + RandomClass.Random.NextDouble();
 
         string[] temporaryArray = Enum.GetNames(typeof(ProductTypes));
         int productCount = temporaryArray.Length;
@@ -22,7 +22,7 @@ public class Buyer
         }
     }
 
-    public void ShowBusket()
+    public void ShowBasket()
     {
         if (_basket.Count == 0)
         {
@@ -57,7 +57,7 @@ public class Buyer
         return _basket;
     }
 
-    public void BalanceBusket()
+    public void BalanceBasket()
     {
         if (_basket.Count == 0)
         {
@@ -68,7 +68,7 @@ public class Buyer
             int randomNumber = RandomClass.Random.Next(0, _basket.Count);
             Console.WriteLine($"Убран товар {_basket[randomNumber]}");
             _basket.RemoveAt(randomNumber);
-            BalanceBusket();
+            BalanceBasket();
         }
     }
 
