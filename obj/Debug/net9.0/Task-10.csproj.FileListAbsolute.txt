@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Tasks 6-X\Task-10\bin\Debug\net9.0\Task-10.exe
+C:\Users\user\Desktop\Tasks 6-X\Task-10\bin\Debug\net9.0\Task-10.deps.json
+C:\Users\user\Desktop\Tasks 6-X\Task-10\bin\Debug\net9.0\Task-10.runtimeconfig.json
+C:\Users\user\Desktop\Tasks 6-X\Task-10\bin\Debug\net9.0\Task-10.dll
+C:\Users\user\Desktop\Tasks 6-X\Task-10\bin\Debug\net9.0\Task-10.pdb
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.AssemblyInfo.cs
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.sourcelink.json
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.dll
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\refint\Task-10.dll
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.pdb
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\Task-10.genruntimeconfig.cache
+C:\Users\user\Desktop\Tasks 6-X\Task-10\obj\Debug\net9.0\ref\Task-10.dll
